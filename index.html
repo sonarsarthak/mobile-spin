@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#160014">
+<title>Aadishakti Mobiles | Diwali Dhamaka 2026 – Spin &amp; Win</title>
+<meta name="description" content="Aadishakti Mobiles, Bitco Signal, Nashik Road, Nashik – Diwali Dhamaka 2026. Shop more, spin more &amp; win more!">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2330001F' stroke='%23FFD36A' stroke-width='4'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Georgia' font-weight='bold' text-anchor='middle' fill='%23FFD36A'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/diwali-poster.webp" type="image/webp">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Fireworks + golden particles (decorative) -->
+<canvas id="fxCanvas" aria-hidden="true"></canvas>
+
+<main id="app">
+
+  <!-- ================= PAGE 1 : OFFER POSTER ================= -->
+  <section class="page page--landing is-active" id="pageLanding" aria-label="Diwali Dhamaka 2026 offer">
+    <div class="poster-frame">
+      <picture>
+        <source srcset="assets/diwali-poster.webp" type="image/webp">
+        <img class="poster" src="assets/diwali-poster.png" width="1122" height="1402"
+             alt="Aadishakti Mobiles Diwali Dhamaka 2026 – Shop more, spin more and win more">
+      </picture>
+    </div>
+
+    <div class="cta-row">
+      <svg class="diya diya--sm" viewBox="0 0 120 90" aria-hidden="true"><use href="#diya"/></svg>
+      <button class="btn-gold btn-gold--xl pulse" id="redeemBtn" type="button">
+        <span>REDEEM NOW</span>
+      </button>
+      <svg class="diya diya--sm" viewBox="0 0 120 90" aria-hidden="true"><use href="#diya"/></svg>
+    </div>
+
+    <p class="shop-line">AADISHAKTI MOBILES &nbsp;•&nbsp; Bitco Signal, Nashik Road, Nashik</p>
+  </section>
+
+  <!-- ================= PAGE 2 : SPIN & WIN ================= -->
+  <section class="page page--wheel" id="pageWheel" aria-label="Diwali Spin and Win" hidden>
+    <svg class="diya diya--corner diya--tl" viewBox="0 0 120 90" aria-hidden="true"><use href="#diya"/></svg>
+    <svg class="diya diya--corner diya--tr" viewBox="0 0 120 90" aria-hidden="true"><use href="#diya"/></svg>
+
+    <div class="wheel-content">
+      <header class="wheel-head">
+        <p class="brand">AADISHAKTI</p>
+        <p class="brand-sub"><span></span>MOBILES<span></span></p>
+        <p class="campaign">DIWALI DHAMAKA 2026</p>
+        <h1>DIWALI SPIN &amp; WIN</h1>
+        <p class="subheading">Spin the Wheel &amp; Win Exciting Rewards!</p>
+      </header>
+
+      <div class="wheel-stage" id="wheelStage">
+        <div class="pointer" aria-hidden="true"></div>
+        <div class="wheel-rim" id="wheelRim">
+          <div class="bulbs" id="bulbs" aria-hidden="true"></div>
+          <div class="wheel-rotor" id="wheelRotor">
+            <canvas id="wheelCanvas" width="1000" height="1000"
+                    role="img" aria-label="Prize wheel with seven rewards: Thailand Trip, Bags, Trolley Bags, Headphones, Wireless Speakers, Buds, Goa Trip"></canvas>
+          </div>
+          <div class="hub" aria-hidden="true"><span>A</span></div>
+        </div>
+        <div class="wheel-base" aria-hidden="true"></div>
+      </div>
+
+      <button class="btn-gold btn-gold--xl pulse" id="spinBtn" type="button">SPIN NOW</button>
+
+      <div class="status-card" id="usedCard" hidden>
+        <p class="status-title">YOU HAVE ALREADY USED YOUR SPIN!</p>
+        <p class="status-sub">Thank you for shopping with Aadishakti Mobiles.</p>
+        <p class="status-prize" id="usedPrize" hidden></p>
+      </div>
+
+      <p class="sr-only" id="liveResult" aria-live="polite"></p>
+
+      <button class="btn-ghost" id="backBtn" type="button">&larr; Back to Diwali Offer</button>
+
+      <footer class="wheel-foot">
+        <p class="tagline">SHOP MORE, SPIN MORE &amp; WIN MORE!</p>
+        <p><strong>AADISHAKTI MOBILES</strong></p>
+        <p>Bitco Signal, Nashik Road, Nashik.</p>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<!-- ================= WINNER POPUP ================= -->
+<div class="modal" id="winModal" role="dialog" aria-modal="true" aria-labelledby="winTitle" hidden>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+  <div class="win-card" id="winCard" tabindex="-1">
+    <div class="win-rays" aria-hidden="true"></div>
+    <p class="win-brand">AADISHAKTI MOBILES</p>
+    <h2 id="winTitle">🎉 CONGRATULATIONS! 🎉</h2>
+    <div class="won-image-wrap">
+      <img id="wonImage" class="won-image" alt="" width="320" height="320" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+    </div>
+    <p class="won-label">YOU HAVE WON!</p>
+    <p class="won-name" id="wonName"></p>
+    <p class="win-thanks">Thank you for shopping with Aadishakti Mobiles!</p>
+    <p class="win-address">Bitco Signal, Nashik Road, Nashik.</p>
+    <button class="btn-gold" id="continueBtn" type="button">CONTINUE</button>
+  </div>
+</div>
+
+<!-- Reusable diya (lamp) graphic -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="diyaGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF0B0"/><stop offset=".45" stop-color="#FFD36A"/><stop offset="1" stop-color="#B8741A"/>
+    </linearGradient>
+    <radialGradient id="flameGlow" cx=".5" cy=".6" r=".6">
+      <stop offset="0" stop-color="#FFE9A0" stop-opacity=".9"/><stop offset="1" stop-color="#FFAD25" stop-opacity="0"/>
+    </radialGradient>
+    <g id="diya">
+      <circle cx="60" cy="30" r="28" fill="url(#flameGlow)"/>
+      <path class="flame" d="M60 6 C71 20 73 30 60 42 C47 30 49 20 60 6Z" fill="#FFAD25"/>
+      <path class="flame flame--in" d="M60 18 C66 26 66 32 60 38 C54 32 54 26 60 18Z" fill="#FFF2CF"/>
+      <path d="M10 44 C14 70 38 84 60 84 C82 84 106 70 110 44 C92 52 78 54 60 54 C42 54 28 52 10 44Z" fill="url(#diyaGold)" stroke="#8A5410" stroke-width="2"/>
+      <path d="M22 52 C40 58 80 58 98 52" fill="none" stroke="#FFF2CF" stroke-opacity=".55" stroke-width="2"/>
+      <ellipse cx="60" cy="45" rx="50" ry="6" fill="#B8741A"/>
+      <ellipse cx="60" cy="44" rx="46" ry="4" fill="#FFD36A"/>
+    </g>
+  </defs>
+</svg>
+
+<noscript><p style="color:#FFF2CF;text-align:center;padding:20px">Please enable JavaScript to play Diwali Spin &amp; Win.</p></noscript>
+<script src="js/script.js"></script>
+</body>
+</html>
